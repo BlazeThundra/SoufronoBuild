@@ -8,14 +8,3 @@
     }
   ]
 }
-```
-
-This is stripped down to the absolute minimum — just one rule, no Content-Type overrides, applied to everything in `/Build/`. Vercel is stricter about `vercel.json` schema than most expect, and extra fields can cause silent rejections.
-
----
-
-## After committing, verify it worked
-
-Open browser DevTools (F12) → **Network tab** → refresh the page → click on one of the `WebGLBuild` files and check that the response headers include:
-```
-Content-Encoding: br
