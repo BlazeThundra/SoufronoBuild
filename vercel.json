@@ -1,32 +1,21 @@
 {
   "headers": [
     {
-      "source": "/Build/WebGLBuild.loader.js",
+      "source": "/Build/(.*)",
       "headers": [
-        { "key": "Content-Type", "value": "application/javascript" },
-        { "key": "Content-Encoding", "value": "br" }
-      ]
-    },
-    {
-      "source": "/Build/WebGLBuild.framework.js.br",
-      "headers": [
-        { "key": "Content-Type", "value": "application/javascript" },
-        { "key": "Content-Encoding", "value": "br" }
-      ]
-    },
-    {
-      "source": "/Build/WebGLBuild.wasm.br",
-      "headers": [
-        { "key": "Content-Type", "value": "application/wasm" },
-        { "key": "Content-Encoding", "value": "br" }
-      ]
-    },
-    {
-      "source": "/Build/WebGLBuild.data.br",
-      "headers": [
-        { "key": "Content-Type", "value": "application/octet-stream" },
         { "key": "Content-Encoding", "value": "br" }
       ]
     }
   ]
 }
+```
+
+This is stripped down to the absolute minimum — just one rule, no Content-Type overrides, applied to everything in `/Build/`. Vercel is stricter about `vercel.json` schema than most expect, and extra fields can cause silent rejections.
+
+---
+
+## After committing, verify it worked
+
+Open browser DevTools (F12) → **Network tab** → refresh the page → click on one of the `WebGLBuild` files and check that the response headers include:
+```
+Content-Encoding: br
