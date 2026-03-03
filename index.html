@@ -34,9 +34,12 @@
         var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+        if (type == 'error') {
+          div.style = 'background: red; padding: 10px;';
+        } else {
+          if (type == 'warning') {
+            div.style = 'background: yellow; padding: 10px;';
+          }
           setTimeout(function() {
             warningBanner.removeChild(div);
             updateBannerVisibility();
@@ -49,9 +52,9 @@
       var loaderUrl = buildUrl + "/WebGLBuild.loader.js";
       var config = {
         arguments: [],
-        dataUrl:      buildUrl + "/WebGLBuild.data.br",
+        dataUrl: buildUrl + "/WebGLBuild.data.br",
         frameworkUrl: buildUrl + "/WebGLBuild.framework.js.br",
-        codeUrl:      buildUrl + "/WebGLBuild.wasm.br",
+        codeUrl: buildUrl + "/WebGLBuild.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "JoshAndAaron",
         productName: "Soufrono",
